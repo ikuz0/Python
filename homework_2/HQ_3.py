@@ -9,10 +9,9 @@ def l(nlis):
 
     for i in range(1, nlis+1):
         n.append((1+(1/i)) ** i)
-    return n
 
 
-def sumN(nlis):
+def sN(nlis):
     sum = 0
     for i in range(len(n)):
         sum = sum + n[i]
@@ -24,4 +23,4 @@ print('Введите число N: ')
 num = int(input())
 l(num)
 print(n)
-sumN(num)
+sN(num)
