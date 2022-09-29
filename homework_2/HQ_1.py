@@ -9,7 +9,7 @@
 def sum(n):
     sumnum = 0
     for i in range(len(n)):
-        if n[i] != '.':
+        if n[i].isdigit() == True:
             sumnum += int(n[i])
     print(f'Сумма цифр: {sumnum}')
 
