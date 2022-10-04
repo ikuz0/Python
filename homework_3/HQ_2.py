@@ -16,8 +16,7 @@ def ad(ni):
 def av(na):
     for i in range(0, na):
         if (i < (na/2)):
-            l = n[i]*n[(na-1)-i]
-            s.append(l)
+            s.append(n[i]*n[(na-1)-i])
     print(s)
 
 
