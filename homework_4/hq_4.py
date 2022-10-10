@@ -10,6 +10,7 @@ print('Введите натуральную степень k>> ')
 num = int(input())
 f = open('new_file_hq', 'w', encoding='utf-8')
 al = list()
+a2 = list()
 for i in range(num, 0, -1):
     a = random.randint(-10, 20)
     if a > 0:
@@ -27,5 +28,11 @@ elif a < 0:
     al.append(str(a))
 
 al.append('=0')
-f.writelines(al)
+if al[0] == '+':
+    for i in range(1, len(al)):
+        a2.append(al[i])
+else:
+    f.writelines(al)
+
+f.writelines(a2)
 f.close()
