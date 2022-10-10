@@ -7,10 +7,10 @@ print('введите текст>> ')
 text = input()
 
 
-def del_some_words(my_text):
-    my_text = list(filter(lambda x: 'абв' not in x, my_text.split()))
-    return " ".join(my_text)
+def end_text(n_text):
+    n_text = list(filter(lambda x: 'абв' not in x, n_text.split()))
+    return " ".join(n_text)
 
 
-text = del_some_words(text)
+text = end_text(text)
 print(text)
