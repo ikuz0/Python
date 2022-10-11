@@ -13,7 +13,7 @@
 
 import random
 
-stones = 57
+stones = 57    # Начальное колличество конфет
 
 print('Введите имя 1го игрока: ')
 n_1 = input()
