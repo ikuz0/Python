@@ -11,19 +11,24 @@
     b) Подумайте как наделить бота ""интеллектом""'''
 
 
-from ast import While
 import random
 
 stones = 57
 
 
 print('Введите имя 1го игрока: ')
-name_1 = input()
+n_1 = input()
 print('Введите имя 2го игрока: ')
-name_2 = input()
+n_2 = input()
 
-# lottery = random.randint(0, 100)
-# print(lottery)
+lottery = random.randint(0, 1)
+if lottery == 1:
+    name_1 = n_2
+    name_2 = n_1
+else:
+    name_1 = n_1
+    name_2 = n_2
+print(lottery)
 while stones > 0:
     f1 = False
     print(f'{name_1} ваш ход: ')
