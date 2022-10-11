@@ -15,7 +15,6 @@ import random
 
 stones = 57
 
-
 print('Введите имя 1го игрока: ')
 n_1 = input()
 print('Введите имя 2го игрока: ')
