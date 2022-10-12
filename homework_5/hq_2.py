@@ -14,7 +14,7 @@
 import random
 
 candy = 57    # Начальное колличество конфет
-
+            
 
 def u_u(stones):
     print('Введите имя 1го игрока: ')
