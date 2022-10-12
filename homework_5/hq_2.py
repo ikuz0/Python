@@ -13,57 +13,76 @@
 
 import random
 
-stones = 57    # Начальное колличество конфет
+candy = 57    # Начальное колличество конфет
 
-print('Введите имя 1го игрока: ')
-n_1 = input()
-print('Введите имя 2го игрока: ')
-n_2 = input()
 
-lottery = random.randint(0, 1)
-if lottery == 1:
-    name_1 = n_2
-    name_2 = n_1
-else:
-    name_1 = n_1
-    name_2 = n_2
-print(lottery)
-while stones > 0:
-    f1 = False
-    print(f'{name_1} ваш ход: ')
-    while f1 != True:
-        num_1 = input()
-        if num_1.isdigit():
-            if 0 < int(num_1) < 29:
-                stones = stones - int(num_1)
-                f1 = True
+def u_u(stones):
+    print('Введите имя 1го игрока: ')
+    n_1 = input()
+    print('Введите имя 2го игрока: ')
+    n_2 = input()
+
+    lottery = random.randint(0, 1)
+    if lottery == 1:
+        name_1 = n_2
+        name_2 = n_1
+    else:
+        name_1 = n_1
+        name_2 = n_2
+    print(f'Первым ходит {name_1}')
+    while stones > 0:
+        f1 = False
+        print(f'{name_1} ваш ход: ')
+        while f1 != True:
+            num_1 = input()
+            if num_1.isdigit():
+                if 0 < int(num_1) < 29:
+                    stones = stones - int(num_1)
+                    f1 = True
+                else:
+                    print(f'Введите числовое значение от 1 до 28')
+                    print(f'{name_1} ваш ход: ')
             else:
                 print(f'Введите числовое значение от 1 до 28')
                 print(f'{name_1} ваш ход: ')
-        else:
-            print(f'Введите числовое значение от 1 до 28')
-            print(f'{name_1} ваш ход: ')
 
-    print(f'осталось {stones}- конфет')
-    if stones < 29:
-        print(f'{name_2} Выиграл!')
-        break
-    else:
-        f2 = False
-        print(f'{name_2} ваш ход: ')
-        while f2 != True:
-            num_2 = input()
-            if num_2.isdigit():
-                if 0 < int(num_2) < 29:
-                    stones = stones - int(num_2)
-                    f2 = True
+        print(f'осталось {stones}- конфет')
+        if stones < 29:
+            print(f'{name_2}, Вы выиграли!')
+            break
+        else:
+            f2 = False
+            print(f'{name_2} ваш ход: ')
+            while f2 != True:
+                num_2 = input()
+                if num_2.isdigit():
+                    if 0 < int(num_2) < 29:
+                        stones = stones - int(num_2)
+                        f2 = True
+                    else:
+                        print(f'Введите числовое значение от 1 до 28')
+                        print(f'{name_2} ваш ход: ')
                 else:
                     print(f'Введите числовое значение от 1 до 28')
                     print(f'{name_2} ваш ход: ')
-            else:
-                print(f'Введите числовое значение от 1 до 28')
-                print(f'{name_2} ваш ход: ')
-        print(f'осталось {stones}- конфет')
-        if stones < 29:
-            print(f'{name_1} Выиграл!')
-            break
+            print(f'осталось {stones}- конфет')
+            if stones < 29:
+                print(f'{name_1}, Вы выиграли!')
+                break
+
+
+def u_b(stones):
+    print('Введите имя 1го игрока: ')
+    n_1 = input()
+
+    lottery = random.randint(0, 1)
+
+    print(f'Первым ходит {lottery}')
+
+
+print('выберите вариант игры: \n введите количество игроков \n 1-для игры с ботом \n 2-для игры двух игроков')
+num = int(input())
+if num == 2:
+    u_u(candy)
+else:
+    print('Игра с ботом')
