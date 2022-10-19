@@ -7,4 +7,4 @@ def add_bd():
         for line in bd.readlines():
             bd_tel.append(line)
     bd_list = ''.join(map(str, bd_tel))
-    print(bd_list)
+    # print(bd_list)

@@ -12,13 +12,9 @@ def menu():
         print('5 - Завершить программу\n')
         n = menu_item(input('Выберите пункт меню: '))
         if n == 1:
-            print('Просмотр записей\n Для продолжения введите 1')
-            if ad.bd_list.strip():
-                print('Нет данных')
-            else:
-                print(ad.bd_list)
-                print('для возврата в меню введите 6:')
-                n = menu_item(input())
+            print(ad.bd_list)
+            print('для возврата в меню введите 6:')
+            n = menu_item(input())
         elif n == 2:
             print('Добавление записей')
         elif n == 3:
