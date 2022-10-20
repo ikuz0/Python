@@ -21,7 +21,6 @@ def menu():
                 print(s_print[i], end='')
             print('для возврата в меню введите любую цифру:')
             n = menu_item(input())
-            lg.log(n)
         elif n == 2:
             print('Добавление записей')
             ad.add_us()
