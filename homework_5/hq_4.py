@@ -11,6 +11,11 @@ def coding(s):
         if s[i] == n:
             s_len = s_len+1
             n = s[i]
+            if s_len == 9:
+                coder.append(str(s_len))
+                s_len = 0
+                coder.append(str(n))
+                n = s[i]
         else:
             coder.append(str(s_len))
             s_len = 1
