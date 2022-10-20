@@ -35,7 +35,7 @@ def menu():
                 ex.e_bd_phon(s_print, 'export.txt')
             elif n == 2:
                 print('строка')
-                ex.e_bd_phon(s_print, 'export1.txt')
+                ex.e_bd_phon_2(s_print, 'export1.txt')
         elif n == 4:
             print('Импорт')
             ad.add_bd()
