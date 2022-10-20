@@ -25,16 +25,25 @@ def menu():
         elif n == 2:
             print('Добавление записей')
             ad.add_us()
-            ex.e_bd_phon(s_print, 'book.txt')
+            #ex.e_bd_phon(s_print, 'book.txt')
         elif n == 3:
             print('Экспорт')
-            ex.e_bd_phon(s_print, 'export.txt')
+            print(
+                'Выберите вариант экспорта\n 1- списком \n 2- построчно\n 0- выход в меню')
+            n = menu_item(input())
+            if n == 1:
+                print('Список')
+                ex.e_bd_phon(s_print, 'export.txt')
+            elif n == 2:
+                print('строка')
+                ex.e_bd_phon(s_print, 'export1.txt')
         elif n == 4:
             print('Импорт')
             ad.add_bd()
-            ex.e_bd_phon(s_print, 'book.txt')
+
         elif n == 5:
             print('Работа программы завершена')
+            ex.e_bd_phon(s_print, 'book.txt')
             break
         else:
             print('Выбран несуществующий пункт меню')
