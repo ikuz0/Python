@@ -13,7 +13,8 @@ def menu():
             print('Пароль')
             password = input()
             if lo.authorization(login, password, 'log_pass_stud.txt') == True:
-                print('\nЗдравствуйте студент\n')
+                names = lo.aut_n(login, 'Student.txt')
+                print(f'\nЗдравствуйте, {names} \n')
                 while True:
                     print('Выберите действие:')
                     print('1 - Показать расписание на неделю')
@@ -31,7 +32,8 @@ def menu():
                         print('выход')
                         break
             elif lo.authorization(login, password, 'log_pass_teach.txt') == True:
-                print('\nЗдравствуйте Преподаватель\n')
+                names = lo.aut_n(login, 'ticher_names.txt')
+                print(f'\nЗдравствуйте, {names}\n')
                 while True:
                     print('Выберите действие:')
                     print('1 - Показть список групп')

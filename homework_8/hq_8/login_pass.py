@@ -19,3 +19,9 @@ def authorization(l, p, bas):
                 return True
 
 
+def aut_n(l, bas):
+
+    bd_lp(bas)
+    for i in range(len(bd_list)):
+        if bd_list[i] == l+'\n':
+            return bd_list[i+1]
