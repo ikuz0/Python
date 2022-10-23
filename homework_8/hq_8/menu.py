@@ -33,16 +33,30 @@ def menu():
                         break
             elif lo.authorization(login, password, 'log_pass_teach.txt') == True:
                 names = lo.aut_n(login, 'ticher_names.txt')
-                print(f'\nЗдравствуйте, {names}\n')
+                print(f'\nЗдравствуйте, {names}')
                 while True:
-                    print('Выберите действие:')
+                    print('\nВыберите действие: ')
                     print('1 - Показть список групп')
                     print('2 - Показать расписание на неделю')
                     print('3 - Добавление Д/з и оценок')
                     print('0 - Выход из программы')
                     n = menu_item(input())
                     if n == 1:
-                        print('Список групп')
+                        print('Список групп: ')
+                        lo.bd_lp('Group.txt')
+                        g_list = lo.bd_list
+                        for i in range(len(g_list)):
+                            if g_list[i] != '\n':
+                                print(f'{g_list[i]}', end='')
+                        print('Для просмотра студентов введите номер группы: ')
+                        gr = input()
+                        gr_g = gr+'.txt'
+                        print(gr_g)
+                        lo.bd_lp(gr_g)
+                        gr_list = lo.bd_list
+                        for i in range(len(gr_list)):
+                            print(gr_list[i])
+                        gr_list = lo.bd_list
                     elif n == 2:
                         print(' Расписание')
                     elif n == 3:
