@@ -1,8 +1,8 @@
-def bd_lp():
+def bd_lp(base):
     global bd_list
     bd_list = list()
     bd_tel = list()
-    with open('login_password.txt', 'r', encoding='utf-8') as bd:
+    with open(base, 'r', encoding='utf-8') as bd:
         for line in bd.readlines():
             bd_tel.append(line)
         for i in range(len(bd_tel)):
@@ -10,10 +10,12 @@ def bd_lp():
     return bd_list
 
 
-def authorization(l, p):
+def authorization(l, p, bas):
 
-    bd_lp()
+    bd_lp(bas)
     for i in range(len(bd_list)):
         if bd_list[i] == l+'\n':
             if bd_list[i+1] == p+'\n':
                 return True
+
+
