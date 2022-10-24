@@ -100,3 +100,36 @@ def homework_add(sub, grup, fille, work):
         al.append(str(hw_list[i])+'\n')
     f.writelines(al)
     f.close
+
+
+def hw_stud(num):
+
+    hw_list = list()
+    gr_grade('hw.txt')
+    for i in range(len(bd_list)):
+        hw_ = str(bd_list[i]).replace('\n', '')
+        hw_list.append(hw_)
+    for i in range(0, len(hw_list)-2):
+        if hw_list[i] == str(num):
+            print(
+                f'История:\n{hw_list[i+2]}\nМатематика:\n{hw_list[i+4]}\nРусский язык:\n{hw_list[i+6]}')
+
+
+def stud_list_(name, fille):
+    gr_grade(fille)
+    bd_olist = list()
+
+    o_list = ''
+    for i in range(len(bd_list)):
+        o_list = str(bd_list[i]).replace('\n', '')
+        bd_olist.append(o_list)
+
+    if fille == 'ist.txt':
+        nam = 'История'
+    elif fille == 'match.txt':
+        nam = 'Математика'
+    elif fille == 'rus.txt':
+        nam = 'Русский язык'
+    for i in range(len(bd_olist)):
+        if bd_olist[i] == name:
+            print(f'{nam}\n{bd_olist[i+1]}')

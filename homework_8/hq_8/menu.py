@@ -27,8 +27,20 @@ def menu():
                         print('Расписание группы')
                     elif n == 2:
                         print(' Домашнее задание')
+                        nam = str(names).replace('\n', '')
+                        if lo.authorization(login, nam, '100.txt') == True:
+                            a.hw_stud('100')
+
+                        elif lo.authorization(login, nam, '101.txt') == True:
+                            a.hw_stud('101')
+
+                        elif lo.authorization(login, nam, '102.txt') == True:
+                            a.hw_stud('102')
                     elif n == 3:
                         print(' оценки')
+                        a.stud_list_(login, 'ist.txt')
+                        a.stud_list_(login, 'match.txt')
+                        a.stud_list_(login, 'rus.txt')
                     elif n == 0:
                         print('выход')
                         break
