@@ -1,4 +1,5 @@
 import login_pass as lo
+import add as a
 
 
 def menu():
@@ -23,11 +24,11 @@ def menu():
                     print('0 - Выход из программы')
                     n = menu_item(input())
                     if n == 1:
-                        print('Список групп')
+                        print('Расписание группы')
                     elif n == 2:
-                        print(' Расписание')
+                        print(' Домашнее задание')
                     elif n == 3:
-                        print(' Д\з и оценки')
+                        print(' оценки')
                     elif n == 0:
                         print('выход')
                         break
@@ -60,7 +61,34 @@ def menu():
                     elif n == 2:
                         print(' Расписание')
                     elif n == 3:
-                        print(' Д\з и оценки')
+                        while True:
+                            pred = lo.aut_n(login, 'ticher.txt')
+                            pr = str(pred).replace('\n', '.txt')
+                            print(' Д\з и оценки')
+                            print('Выберите действие:')
+                            print('1 - добавить оценки')
+                            print('2 - добавить домашнее задание')
+                            print('0 - Выход в меню')
+                            n = menu_item(input())
+                            if n == 1:
+                                print('Введите Фамилию студента: ')
+                                name_stud = input()
+                                a.stud_list(name_stud, pr)
+                                print('Введите оценку: ')
+                                n = menu_item(input())
+                                a.add_grade(name_stud, str(n), pr)
+                            elif n == 2:
+                                pr_hw = str(pred).replace('\n', '')
+                                print('Введите номер группы: ')
+                                n = menu_item(input())
+                                a.homework(pr_hw, n, 'hw.txt')
+                                print('Введите задание: ')
+                                work = input()
+                                a.homework_add(pr_hw, n, 'hw.txt', work)
+
+                            elif n == 0:
+                                break
+
                     elif n == 0:
                         print('выход')
                         break
