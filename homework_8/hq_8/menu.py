@@ -25,6 +25,23 @@ def menu():
                     n = menu_item(input())
                     if n == 1:
                         print('Расписание группы')
+                        nam = str(names).replace('\n', '')
+                        p_t = list()
+                        if lo.authorization(login, nam, '100.txt') == True:
+                            timetable = a.gr_grade('timetable100.txt')
+                            for i in range(len(timetable)):
+                                p_t.append(str(timetable[i]).replace('\n', ''))
+                                print(p_t[i])
+                        elif lo.authorization(login, nam, '101.txt') == True:
+                            timetable = a.gr_grade('timetable101.txt')
+                            for i in range(len(timetable)):
+                                p_t.append(str(timetable[i]).replace('\n', ''))
+                                print(p_t[i])
+                        elif lo.authorization(login, nam, '102.txt') == True:
+                            timetable = a.gr_grade('timetable102.txt')
+                            for i in range(len(timetable)):
+                                p_t.append(str(timetable[i]).replace('\n', ''))
+                                print(p_t[i])
                     elif n == 2:
                         print(' Домашнее задание')
                         nam = str(names).replace('\n', '')
