@@ -1,6 +1,7 @@
-import emoji
+# emoji 2.1.0
 
 '''Создайте программу для игры в ""Крестики-нолики"".'''
+import emoji
 
 
 def print_a(a_list):
