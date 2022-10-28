@@ -3,7 +3,6 @@ from telebot import TeleBot
 
 bot = TeleBot('5498581242:AAF1bnFZdJAJTYqZzf96Uc_PsTqF834PtrQ')
 
-
 def addin(text):
     lst = text.split()
     bd_1 = list()
