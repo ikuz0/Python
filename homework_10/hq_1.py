@@ -75,7 +75,7 @@ def echo(msg):
     def callback_func(query):
         global value, old_value, id_name
         data = query.data
-        a = []
+
         if data == 'no':
             pass
         elif data == 'C':
@@ -85,11 +85,8 @@ def echo(msg):
                 value = value[:len(value)-1]
         elif data == '=':
             log(value, msg.from_user.first_name, msg.from_user.id)
-            # for i in range(len(value)):
-            # if value[i] == '+' or value[i] == '-' or value[i] == '*' or value[i] == '/':
-            #     a.append(value[i])
-            # else:
-            #     a.append(value[i])
+
+            print(value.find('i'))  # комплексная часть
             try:
                 value = str(eval(value))
             except:
