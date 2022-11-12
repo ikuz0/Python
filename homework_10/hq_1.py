@@ -8,7 +8,7 @@ bot = TeleBot('5498581242:AAF1bnFZdJAJTYqZzf96Uc_PsTqF834PtrQ')
 value = ''
 old_value = ''
 keyboard = telebot.types.InlineKeyboardMarkup()
-keyboard.row(telebot.types.InlineKeyboardButton('i', callback_data='i'),
+keyboard.row(telebot.types.InlineKeyboardButton('j', callback_data='j'),
              telebot.types.InlineKeyboardButton('C', callback_data='C'),
              telebot.types.InlineKeyboardButton('<=', callback_data='<='),
              telebot.types.InlineKeyboardButton('/', callback_data='/'))
@@ -43,6 +43,56 @@ def log(data, user_name, user_id):
     file.close()
 
 
+def compl(val):
+    i_str = []
+    s = ''
+    i_real = ''
+    i_imag = ''
+    de = []
+    for i in range(len(value)):
+        if value[i] not in ['+', '-']:
+            s = s+value[i]
+        else:
+            i_str.append(s)
+            s = ''
+            if value[i] == '-':
+                s = '-'
+            else:
+                i_str.append(value[i])
+    i_str.append(s)
+
+    for i in range(len(i_str)):
+        if str(i_str[i]) == '':
+            de.append(i)
+    for i in range(len(de)):
+        i_str.pop(de[i])
+
+    for i in range(len(i_str)):
+        st = str(i_str[i])
+        if st.find('j') == -1:
+            if i_str[i] != '':
+                if i_str[i] != '+':
+                    i_real = i_real+'+'+i_str[i]
+        else:
+            if st[0] != '-':
+                i_imag = i_imag+'+'+i_str[i]
+            else:
+                i_imag = i_imag+i_str[i]
+
+    if i_imag.find('j') == 1:
+        i_imag = i_imag.replace('j', '1', 1)
+    i_imag = i_imag.replace('j', '')
+
+    if len(i_imag) == 0:
+        i_imag = '0'
+    if len(i_real) == 0:
+        i_real = '0'
+    i_imag = eval(i_imag)
+    i_real = eval(i_real)
+
+    return f'{complex(i_real, i_imag)}'
+
+
 @bot.message_handler(commands=['loger'])
 def loging(msg: telebot.types.Message):
     log(msg.text, msg.from_user.first_name, msg.from_user.id)
@@ -73,7 +123,10 @@ def echo(msg):
 
     @bot.callback_query_handler(func=lambda call: True)
     def callback_func(query):
-        global value, old_value, id_name
+        global value, old_value
+        i_real = []
+        i_imag = []
+        i_str = []
         data = query.data
 
         if data == 'no':
@@ -85,8 +138,9 @@ def echo(msg):
                 value = value[:len(value)-1]
         elif data == '=':
             log(value, msg.from_user.first_name, msg.from_user.id)
+            if value.find('i') != -1:
+                value = compl(value)
 
-            print(value.find('i'))  # комплексная часть
             try:
                 value = str(eval(value))
             except:
